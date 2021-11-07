@@ -45,12 +45,7 @@ module.exports = function Asearch (source) {
   }
 
   function unpack (str) {
-    const bytes = []
-    for (let c of str.split('')) {
-      const code = c.charCodeAt(0)
-      bytes.push(code)
-    }
-    return bytes
+    return [...str].map(c => c.codePointAt(0))
   }
 
   function match (str, ambig = 0) {

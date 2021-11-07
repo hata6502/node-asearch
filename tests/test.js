@@ -133,3 +133,20 @@ describe('pattern "漢字文字列"', function () {
     assert.equal(match("漢和辞典", 2), false)
   })
 })
+
+describe('pattern "👀😀💨"', function () {
+
+  const match = Asearch('👀😀💨')
+
+  it('should match "👀😀💨"', function () {
+    assert.equal(match('👀😀💨'), true)
+  })
+
+  it('should not match "👀😀𝟘"', function () {
+    assert.equal(match('👀😀𝟘'), false)
+  })
+
+  it('should match ("👀😀𝟘", 1)', function () {
+    assert.equal(match("👀😀𝟘", 1), true)
+  })
+})
