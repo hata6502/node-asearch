@@ -135,6 +135,23 @@ describe('pattern "漢字文字列"', function () {
   })
 })
 
+describe('pattern "👀😀💨"', function () {
+
+  const match = Asearch('👀😀💨')
+
+  it('should match "👀😀💨"', function () {
+    assert.equal(match('👀😀💨'), true)
+  })
+
+  it('should not match "👀😀𝟘"', function () {
+    assert.equal(match('👀😀𝟘'), false)
+  })
+
+  it('should match ("👀😀𝟘", 1)', function () {
+    assert.equal(match("👀😀𝟘", 1), true)
+  })
+})
+
 describe('cli with pattern "abcde"', function () {
   it('should match "abcde"', function () {
     assert.equal(cliMain(['node', 'cli.js', 'abcde', 'abcde']), 0)
